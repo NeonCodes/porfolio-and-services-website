@@ -1,0 +1,163 @@
+<!---<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VBL Business - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #e3f2fd);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 800px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .services {
+      padding: 60px 40px;
+      background-color: #ffffff;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h3 {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VBL Business</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Need a translation, subtitles, a new website? I got you!</h1>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service">
+        <h3>Translation</h3>
+        <p>Professional translation services in multiple languages, tailored to your needs.</p>
+      </div>
+      <div class="service">
+        <h3>Subtitling</h3>
+        <p>High-quality subtitles for video content to reach a broader audience.</p>
+      </div>
+      <div class="service">
+        <h3>Beta Reading</h3>
+        <p>Get constructive feedback on your writing before publication.</p>
+      </div>
+      <div class="service">
+        <h3>Static Websites & Maintenance</h3>
+        <p>Simple, elegant websites and ongoing maintenance to keep them fresh and functional.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>Contact us at: <a href="mailto:contact@vblbusiness.com">contact@vblbusiness.com</a></p>
+  </footer>
+</body>
+</html>---!>

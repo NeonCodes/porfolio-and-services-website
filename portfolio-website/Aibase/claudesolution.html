@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBL Business | Translation & Web Services</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #333;
+            --accent-color: #ff6600;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --light-color: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .hero-content {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .hero-heading {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-subtext {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+        }
+        
+        .cta-button:hover {
+            background-color: #0055aa;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .service-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--bg-color);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 102, 204, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-category {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Animation for hero text */
+        .animated-text {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0;
+            animation: typeWriter 4s steps(40, end) forwards;
+        }
+        
+        @keyframes typeWriter {
+            from {
+                width: 0;
+                opacity: 1;
+            }
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero-heading {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtext {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero-heading {
+                font-size: 2rem;
+            }
+            
+            .services-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                padding: 10px 0;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">VBL<span>Business</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-heading">
+                <span class="animated-text">Need a translation, subtitles, a new website?</span>
+                <span class="animated-text" style="animation-delay: 2s;">I got you!</span>
+            </h1>
+            <p class="hero-subtext">Professional Translation & Web Services</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-heading">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Translation</h3>
+                    <p class="service-description">Professional translation services for documents, websites, and more. Quality and accuracy guaranteed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3 class="service-title">Subtitling</h3>
+                    <p class="service-description">High-quality subtitling services for videos, films, and multimedia content with perfect timing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3 class="service-title">Beta Reading</h3>
+                    <p class="service-description">Professional beta reading services to ensure your content is polished and ready for your audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3 class="service-title">Website Creation</h3>
+                    <p class="service-description">Custom static website design and development with ongoing maintenance and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-heading">Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Translation Project" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Book Translation</h3>
+                        <p class="portfolio-category">Translation</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Subtitling Project" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Documentary Subtitles</h3>
+                        <p class="portfolio-category">Subtitling</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Beta Reading Project" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Novel Beta Reading</h3>
+                        <p class="portfolio-category">Beta Reading</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Website Project" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">E-commerce Website</h3>
+                        <p class="portfolio-category">Web Development</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Translation Project 2" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Marketing Material</h3>
+                        <p class="portfolio-category">Translation</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/320" alt="Website Project 2" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Portfolio Website</h3>
+                        <p class="portfolio-category">Web Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
+            <img src="/api/placeholder/400/320" alt="About VBL Business" class="about-image">
+            <div class="about-text">
+                <h2>About VBL Business</h2>
+                <p>VBL Business provides professional translation, subtitling, beta reading, and web development services. With a focus on quality and client satisfaction, we deliver accurate translations, perfectly timed subtitles, insightful beta reading, and modern websites.</p>
+                <p>Whether you need content translated into multiple languages, subtitles for your videos, professional feedback on your writing, or a brand new website, VBL Business has you covered with personalized service and attention to detail.</p>
+                <a href="#contact" class="cta-button">Work With Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Contact -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <div>
+                <a href="#" class="footer-logo">VBL<span>Business</span></a>
+                <p class="footer-text">Professional translation and web services for all your needs. Quality work delivered on time.</p>
+                <div class="footer-social">
+                    <a href="#"><span>in</span></a>
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>tw</span></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Translation</a></li>
+                    <li><a href="#">Subtitling</a></li>
+                    <li><a href="#">Beta Reading</a></li>
+                    <li><a href="#">Website Creation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Contact</h3>
+                <div class="footer-contact">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <p>Email:</p>
+                        <p>info@vblbusiness.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p class="copyright">© 2025 VBL Business. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
